@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap');
+
+/* set dafault margin and padding to 0 */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family:"Roboto" sans-serif;
+
+}
+
+/* Whole container or app */
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+}
+
+.container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url("./bg.png") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  opacity: 0.7;
+}
+
+/* Parent of all weather  */
+.weather {
+  z-index:2 ;  
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.weather1 {
+  font-size: 2rem;
+}
+
+.weather p {
+  font-size: 2rem;
+  }
+
+.weather span {
+  font-size: 0.75rem;
+}
+
+.weather3 span {
+  margin: 0.3rem;
+}
+
+/* NavBar */
+
+nav {
+  height: 100px;
+  border-radius: 100px 100px 0px 0px ;
+  padding: 1rem 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0,18);
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  background-color: rgb(26, 12, 12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+nav  form{
+  width: 70%;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.search-field {
+  font-size: 1.1rem;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  padding: 1rem 0;
+  border: 0;
+  border-bottom: 2px solid white;
+  width: 97%;
+}
+
+nav form button {
+  background-color: rgb(167, 54, 69);
+  border-radius: 5px 25px 25px 5px;
+  font-size: 1.1rem;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav form button:hover{
+  opacity: 0.7;
+}
+
+
+
+

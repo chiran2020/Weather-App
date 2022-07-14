@@ -1,1 +1,1 @@
-# Web_Dev-Two
+This is the second Web-Dev project. This project is about a weather app, and it will be heavy in JavaScript. My plan is to fetch weather API and be able to search for POPULAR cities and countries.  More information will be added as I go forward.
