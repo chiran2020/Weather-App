@@ -21,20 +21,49 @@ const fetchData = async () => {
 
   const {
     current: { temp_f, condition: { text, icon }, },
-    location: { name },
+    location: { name, localtime },
   } = data;
 
-  updateDom(temp_f, name, icon, text);
+  updateDom(temp_f, name, localtime, icon, text);
 
 };
 
-function updateDom(temperature, city, emoji, text) {
+function updateDom(temperature, city, time, emoji, text) {
   temperatureField.innerText = temperature
   cityField.innerText = city
+  const exactTime = time.split(" ")[1]
+  const exactDate = time.split(" ")[0]
 
+  const exactDay = new Date(exactDate).getDay()
+
+  dateField.innerText = `${exactTime} - ${getDayFullName(exactDay)} ${exactDate}`
   emojiField.src = emoji
   weatherField.innerText = text
+
 
 }
 
 fetchData();
+
+function getDayFullName(num) {
+  switch (num) {
+    case 0:
+      return "Sunday"
+    case 1:
+      return "Monday"
+    case 2:
+      return "Tuesday"
+    case 3:
+      return "Wednesday"
+    case 4:
+      return "Thursday"
+    case 5:
+      return "Friday"
+    case 6:
+      return "Saturday"
+    default:
+      return "Don't know!"
+      break;
+  }
+
+}
