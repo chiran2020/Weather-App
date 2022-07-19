@@ -1,4 +1,5 @@
 // Initializing all elements Constants
+alert('To search for Kentucky, Type "Kentucky USA" ')
 
 const temperatureField = document.querySelector(".weather1")
 const cityField = document.querySelector(".weather2 p")
@@ -38,22 +39,32 @@ const fetchData = async (target) => {
 };
 
 // Function to update the DOM
+let sign = "°";
 
 function updateDom(temperature, city, time, emoji, text) {
-  temperatureField.innerText = temperature
+  temperatureField.innerText = temperature + sign;
   cityField.innerText = city
 
   const exactTime = time.split(" ")[1]
-  // console.log(exactTime)
+
   const exactDate = time.split(" ")[0]
+  //  Used exactDate to format date. making month/day/year
+  const month = exactDate.split("-")[1]
+  const day = exactDate.split("-")[2]
+  const year = exactDate.split("-")[0]
+
+  const DateAfterFormate = month + " " + day + " " + year;
+
   const exactDay = new Date(exactDate).getDay()
 
 
 
-  dateField.innerText = `${exactTime} - ${getDayFullName(exactDay)} ${exactDate}`
+
+
+  dateField.innerText = `${exactTime} - ${getDayFullName(exactDay)} ${DateAfterFormate}`
   emojiField.src = emoji
   weatherField.innerText = text
-  console.log(exactDay)
+
 
 
 }
