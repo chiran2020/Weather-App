@@ -1,5 +1,4 @@
 // Initializing all elements Constants
-alert('To search for Kentucky, Type "Kentucky USA" ')
 
 const temperatureField = document.querySelector(".weather1")
 const cityField = document.querySelector(".weather2 p")
@@ -45,25 +44,21 @@ function updateDom(temperature, city, time, emoji, text) {
   temperatureField.innerText = temperature + sign;
   cityField.innerText = city
 
-  const exactTime = time.split(" ")[1]
 
-  const exactDate = time.split(" ")[0]
-  //  Used exactDate to format date. making month/day/year
-  const month = exactDate.split("-")[1]
-  const day = exactDate.split("-")[2]
-  const year = exactDate.split("-")[0]
+
+
+  const [exactDate, exactTime] = time.split(" ")
+
+  //  Used exactDate to format date. making month/day/year. from year/month/day
+
+  const [year, month, day] = exactDate.split("-")
 
   const DateAfterFormate = month + " " + day + " " + year;
 
-  const exactDay = new Date(exactDate).getDay()
-
-
-
-
-
-  dateField.innerText = `${exactTime} - ${getDayFullName(exactDay)} ${DateAfterFormate}`
+  dateField.innerText = `${exactTime} - ${getDayFullName()} - ${DateAfterFormate}`
   emojiField.src = emoji
   weatherField.innerText = text
+
 
 
 
@@ -88,7 +83,7 @@ form.addEventListener("submit", search);
 // Function to get name of the day
 
 function getDayFullName(num) {
-  switch (num) {
+  switch (new Date().getDay()) {
     case 0:
       return "Sunday"
     case 1:
