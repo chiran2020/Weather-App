@@ -8,6 +8,8 @@ const weatherField = document.querySelector(".weather3 span")
 const searchField = document.querySelector(".search-Field")
 const form = document.querySelector("form")
 
+const weatherAlert = document.querySelector(".weather-Alert p")
+
 
 // Default LOCATION
 
@@ -59,11 +61,28 @@ function updateDom(temperature, city, time, emoji, text) {
   emojiField.src = emoji
   weatherField.innerText = text
 
+  // Weather alert when it's very hot or cold
+
+  const highT = "Hot Temperature Alert!"
+  const lowT = "Cold Temperature Alert!"
+  const temAlert = () => {
+    let temp = temperature
+
+    if (temp > 95) {
+      weatherAlert.innerText = highT
+    }
+    else if (temp < 30) {
+      weatherAlert.innerText = lowT
+    }
+    else {
+      weatherAlert.style.display = "none"
+    }
+  }
+  temAlert()
 
 
 
 }
-
 fetchData(target);
 
 
